@@ -1,51 +1,53 @@
 "use strict";
 
 let onDisplay = document.getElementById("screen");
-
 let currentValue = 0;
 let oldValue;
 let containsDot = false;
 
+const resetEverything = function () {
+  onDisplay.innerHTML = "0";
+  currentValue = 0;
+  oldValue = 0;
+  containsDot = false;
+  buttons[0].innerHTML = "AC";
+};
+
+const changeSign = (currentVal) => {
+  return Number(currentVal) * -1;
+};
+
+const percentage = (currentVal) => {
+  return Number(currentVal) / 100;
+};
+
 let buttons = document.querySelectorAll("button");
 buttons.forEach((element) => {
   element.addEventListener("click", () => {
-    // if input is number
     if (element.classList.contains("num")) {
-      // if input is . and currentValue === 0 and containsDot === false
-    } else if (element.classList.contains("operations")) {
-    } else {
+      buttons[0].innerHTML = "C";
+      if (element.value === "." && !containsDot) {
+        onDisplay.innerHTML += element.value;
+        containsDot = true;
+      } else if (element.value === "." && containsDot) {
+      } else if (onDisplay.innerHTML === "0") {
+        onDisplay.innerHTML = element.value;
+        currentValue = onDisplay.innerHTML;
+      } else {
+        onDisplay.innerHTML += element.value;
+        currentValue = onDisplay.innerHTML;
+      }
+      // top row
+    } else if (element.classList.contains("top-row")) {
+      if (element.value === "clear") {
+        resetEverything();
+      } else if (element.value === "-1") {
+        onDisplay.innerHTML = changeSign(currentValue);
+        currentValue = onDisplay.innerHTML;
+      } else {
+        onDisplay.innerHTML = percentage(currentValue);
+        currentValue = onDisplay.innerHTML;
+      }
     }
   });
 });
-
-// if input is operation
-// call reset function
-// get input for operation
-// if input is operation again update operation
-// else if input is number
-// get input for number
-
-// if input is top-row
-// if input is AC button
-// call reset function
-// else if input is +/-
-// multiply currentValue by -1
-// update screen
-// else
-// divide currentValue by 100
-// update screen
-
-// TODO: create reset function
-// set oldValue to currentValue
-// set newValue to 0
-// set containsDot to false
-// update display
-
-// TODO: create function to get input for number
-// TODO: create function to get input for operation
-// TODO: create function to get perform calculation
-
-// TODO: create main function
-
-// if displayed 0
-// if containsDot
