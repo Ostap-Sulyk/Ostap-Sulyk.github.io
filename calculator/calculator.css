@@ -45,6 +45,7 @@ button {
   background-color: #81a1c1;
 }
 
-button:hover {
+button:hover , .selected-option {
   filter: brightness(110%);
 }
+

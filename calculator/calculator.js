@@ -5,6 +5,7 @@ let currentValue = 0;
 let oldValue;
 let containsDot = false;
 let operation, operationPerformed = false;
+let swappedValues = false;
 
 const resetEverything = function () {
     onDisplay.innerHTML = "0";
@@ -13,6 +14,7 @@ const resetEverything = function () {
     containsDot = false;
     buttons[0].innerHTML = "AC";
     operationPerformed = false;
+    swappedValues = false;
 };
 
 const changeSign = (currentVal) => {
@@ -56,11 +58,15 @@ buttons.forEach((element) => {
             }
         } else {
             if (element.classList.contains('operations')) {
+                if (!swappedValues){
+                    oldValue = currentValue;
+                    swappedValues = true;
+                }
+
                 if (!operationPerformed) {
                     operation = element.value
                 }
             }
-
         }
     });
 });
