@@ -39,6 +39,7 @@ const clear = ()=>{
     display.innerText = '0';
     currentNum = previousNum = operation = result = undefined;
     hasDot = operationChosen = operationPerformed = false;
+    buttons[0].innerText = 'AC'
 }
 
 let buttons = document.querySelectorAll("button");
@@ -46,6 +47,7 @@ buttons.forEach((element) => {
     element.addEventListener("click", () => {
         // logic for number
         if (element.classList.contains('num')) {
+            buttons[0].innerText = 'C'
             if (operationChosen){
                 display.innerText = '0';
                 operationChosen = false;
