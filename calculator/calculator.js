@@ -31,6 +31,9 @@ const divide = () => {
 }
 let buttons = document.querySelectorAll("button");
 buttons.forEach((element) => {
+
+
+
     element.addEventListener("click", () => {
         if (element.classList.contains("num")) {
             buttons[0].innerHTML = "C";
@@ -58,7 +61,7 @@ buttons.forEach((element) => {
             }
         } else {
             if (element.classList.contains('operations')) {
-                if (!swappedValues){
+                if (!swappedValues) {
                     oldValue = currentValue;
                     swappedValues = true;
                 }
