@@ -1,75 +1,85 @@
 "use strict";
 
-let onDisplay = document.getElementById("screen");
-let currentValue = 0;
-let oldValue;
-let containsDot = false;
-let operation, operationPerformed = false;
-let swappedValues = false;
+let display = document.getElementById('screen')
 
-const resetEverything = function () {
-    onDisplay.innerHTML = "0";
-    currentValue = 0;
-    oldValue = 0;
-    containsDot = false;
-    buttons[0].innerHTML = "AC";
-    operationPerformed = false;
-    swappedValues = false;
-};
+let currentNum, previousNum, operation, result;
+let hasDot = false;
+let operationChosen = false
+let operationPerformed = false;
 
-const changeSign = (currentVal) => {
-    return Number(currentVal) * -1;
-};
-
-const percentage = (currentVal) => {
-    let newPrecise = new Big(currentVal);
-    return newPrecise.div(100);
-};
-
-const divide = () => {
-
+const getNum = (element) => {
+    if (display.innerText === '0' && element.value !== '.') {
+        display.innerText = element.value;
+    } else if (element.value === '.' && !hasDot) {
+        display.innerText += element.value
+        hasDot = true;
+    } else if (element.value !== '.') {
+        display.innerText += element.value;
+    }
 }
+
+const performCalculation = (num1,  action, num2) =>{
+    if(num1 !== undefined && num2 !== undefined && action !== undefined && action !== '='){
+        let expresion = String(`${num1} ${action} ${num2}`)
+        operationPerformed = true;
+        return eval(expresion)
+    }
+}
+
+const reset = () =>{
+    display.innerText = result
+    currentNum = result
+    result = 0
+    previousNum = undefined
+    operation = undefined
+    operationPerformed = false
+}
+
+const clear = ()=>{
+    display.innerText = '0';
+    currentNum = previousNum = operation = result = undefined;
+    hasDot = operationChosen = operationPerformed = false;
+    buttons[0].innerText = 'AC'
+}
+
 let buttons = document.querySelectorAll("button");
 buttons.forEach((element) => {
-
-
-
     element.addEventListener("click", () => {
-        if (element.classList.contains("num")) {
-            buttons[0].innerHTML = "C";
-            if (element.value === "." && !containsDot) {
-                onDisplay.innerHTML += element.value;
-                containsDot = true;
-            } else if (element.value === "." && containsDot) {
-            } else if (onDisplay.innerHTML === "0") {
-                onDisplay.innerHTML = element.value;
-                currentValue = onDisplay.innerHTML;
-            } else {
-                onDisplay.innerHTML += element.value;
-                currentValue = onDisplay.innerHTML;
+        // logic for number
+        if (element.classList.contains('num')) {
+            buttons[0].innerText = 'C'
+            if (operationChosen){
+                display.innerText = '0';
+                operationChosen = false;
+                hasDot = false;
             }
-            // top row
-        } else if (element.classList.contains("top-row")) {
-            if (element.value === "clear") {
-                resetEverything();
-            } else if (element.value === "-1") {
-                onDisplay.innerHTML = changeSign(currentValue);
-                currentValue = onDisplay.innerHTML;
+            getNum(element)
+            if (operation === undefined) {
+                currentNum = display.innerText
             } else {
-                onDisplay.innerHTML = percentage(currentValue);
-                currentValue = onDisplay.innerHTML;
+                previousNum = display.innerText;
             }
-        } else {
-            if (element.classList.contains('operations')) {
-                if (!swappedValues) {
-                    oldValue = currentValue;
-                    swappedValues = true;
-                }
+        } else if (element.classList.contains('operations')) {
+            result = performCalculation(currentNum,  operation, previousNum)
+            if (operationPerformed){
+                reset()
+            }
+            operationChosen = true;
+            operation = element.value;
 
-                if (!operationPerformed) {
-                    operation = element.value
-                }
+        } else {
+            if (element.value === 'clear'){
+                clear()
+            }else if (element.value === '-1'){
+                currentNum = currentNum * (-1);
+                display.innerText = currentNum;
+            }else{
+                currentNum = new Big(currentNum)
+                currentNum = currentNum.div(100)
+                display.innerText = currentNum;
             }
         }
-    });
+    })
+
 });
+
