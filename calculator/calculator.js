@@ -17,39 +17,20 @@ const getNum = (element) => {
     }
 }
 
-const afterDot = (number) => {
-    number += ''
-    if (number.includes('.')) {
-        let indexOfDot = (number += '').indexOf('.')
-        return number.length - indexOfDot - 1;
-    }
-    return 0
-}
-
-const repeatString = (string, num) => {
-    let repeated = '';
-    for (let i = 0; i < num; i++) {
-        repeated += string
-    }
-    return repeated;
-}
-
-
 const calculation = (num1,  action, num2) =>{
     if(num1 !== undefined && num2 !== undefined && action !== undefined && action !== '='){
         operationPerformed = true;
-        let zerosAfterDot1 = afterDot(num1)
-        let zerosAfterDot2 = afterDot(num2)
-
-        let zeros1 = zerosAfterDot1 > zerosAfterDot2 ? zerosAfterDot1 : zerosAfterDot2;
-        let swap = "1" + repeatString('0', zeros1)
-
-        num1 = num1 * swap
-        num2 = num2 * swap
-
-
-
-        return (eval(String(`${num1} ${action} ${num2}`)) / swap)
+        num1 = new Big(num1)
+        num2 = new Big(num2)
+        if (action === '+'){
+            return Number((num1.add(num2)).toFixed(10))
+        }else if( action === '-'){
+            return  Number((num1.minus(num2)).toFixed(10))
+        }else if(action === '*'){
+            return Number((num1.times(num2)).toFixed(10))
+        }else {
+            return Number((num1.div(num2)).toFixed(10))
+        }
 
     }
 }
@@ -94,6 +75,7 @@ buttons.forEach((element) => {
             }
             operationChosen = true;
             operation = element.value;
+            // element.classList.toggle('selected-option')
 
         } else {
             if (element.value === 'clear'){
