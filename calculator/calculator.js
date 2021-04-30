@@ -17,25 +17,24 @@ const getNum = (element) => {
     }
 }
 
-const calculation = (num1,  action, num2) =>{
-    if(num1 !== undefined && num2 !== undefined && action !== undefined && action !== '='){
+const calculation = (num1, action, num2) => {
+    if (num1 !== undefined && num2 !== undefined && action !== undefined && action !== '=') {
         operationPerformed = true;
         num1 = new Big(num1)
         num2 = new Big(num2)
-        if (action === '+'){
+        if (action === '+') {
             return Number((num1.add(num2)).toFixed(10))
-        }else if( action === '-'){
-            return  Number((num1.minus(num2)).toFixed(10))
-        }else if(action === '*'){
+        } else if (action === '-') {
+            return Number((num1.minus(num2)).toFixed(10))
+        } else if (action === '*') {
             return Number((num1.times(num2)).toFixed(10))
-        }else {
+        } else {
             return Number((num1.div(num2)).toFixed(10))
         }
-
     }
 }
 
-const reset = () =>{
+const reset = () => {
     display.innerText = result
     currentNum = result
     result = 0
@@ -44,7 +43,7 @@ const reset = () =>{
     operationPerformed = false
 }
 
-const clear = ()=>{
+const clear = () => {
     display.innerText = '0';
     currentNum = previousNum = operation = result = undefined;
     hasDot = operationChosen = operationPerformed = false;
@@ -55,9 +54,13 @@ let buttons = document.querySelectorAll("button");
 buttons.forEach((element) => {
     element.addEventListener("click", () => {
         // logic for number
+
         if (element.classList.contains('num')) {
+            if (operation === '='){
+                reset()
+            }
             buttons[0].innerText = 'C'
-            if (operationChosen){
+            if (operationChosen) {
                 display.innerText = '0';
                 operationChosen = false;
                 hasDot = false;
@@ -69,21 +72,19 @@ buttons.forEach((element) => {
                 previousNum = display.innerText;
             }
         } else if (element.classList.contains('operations')) {
-            result = calculation(currentNum,  operation, previousNum)
-            if (operationPerformed){
+            result = calculation(currentNum, operation, previousNum)
+            if (operationPerformed) {
                 reset()
             }
             operationChosen = true;
             operation = element.value;
-            // element.classList.toggle('selected-option')
-
         } else {
-            if (element.value === 'clear'){
+            if (element.value === 'clear') {
                 clear()
-            }else if (element.value === '-1'){
+            } else if (element.value === '-1') {
                 currentNum = currentNum * (-1);
                 display.innerText = currentNum;
-            }else{
+            } else {
                 currentNum = new Big(currentNum)
                 currentNum = currentNum.div(100)
                 display.innerText = currentNum;
