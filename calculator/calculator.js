@@ -1,5 +1,4 @@
 "use strict";
-
 let display = document.getElementById('screen')
 
 let currentNum, previousNum, operation, result;
@@ -18,11 +17,40 @@ const getNum = (element) => {
     }
 }
 
-const performCalculation = (num1,  action, num2) =>{
+const afterDot = (number) => {
+    number += ''
+    if (number.includes('.')) {
+        let indexOfDot = (number += '').indexOf('.')
+        return number.length - indexOfDot - 1;
+    }
+    return 0
+}
+
+const repeatString = (string, num) => {
+    let repeated = '';
+    for (let i = 0; i < num; i++) {
+        repeated += string
+    }
+    return repeated;
+}
+
+
+const calculation = (num1,  action, num2) =>{
     if(num1 !== undefined && num2 !== undefined && action !== undefined && action !== '='){
-        let expresion = String(`${num1} ${action} ${num2}`)
         operationPerformed = true;
-        return eval(expresion)
+        let zerosAfterDot1 = afterDot(num1)
+        let zerosAfterDot2 = afterDot(num2)
+
+        let zeros1 = zerosAfterDot1 > zerosAfterDot2 ? zerosAfterDot1 : zerosAfterDot2;
+        let swap = "1" + repeatString('0', zeros1)
+
+        num1 = num1 * swap
+        num2 = num2 * swap
+
+
+
+        return (eval(String(`${num1} ${action} ${num2}`)) / swap)
+
     }
 }
 
@@ -60,7 +88,7 @@ buttons.forEach((element) => {
                 previousNum = display.innerText;
             }
         } else if (element.classList.contains('operations')) {
-            result = performCalculation(currentNum,  operation, previousNum)
+            result = calculation(currentNum,  operation, previousNum)
             if (operationPerformed){
                 reset()
             }
@@ -80,6 +108,5 @@ buttons.forEach((element) => {
             }
         }
     })
-
 });
 
