@@ -1,7 +1,8 @@
 "use strict";
 let display = document.getElementById('screen')
 
-let currentNum, previousNum, operation, result;
+let currentNum = display.innerText;
+let  previousNum, operation, result;
 let hasDot = false;
 let operationChosen = false
 let operationPerformed = false;
@@ -36,7 +37,7 @@ const calculation = (num1, action, num2) => {
 
 const reset = () => {
     display.innerText = result
-    currentNum = result
+    currentNum = display.innerText;
     result = 0
     previousNum = undefined
     operation = undefined
@@ -45,7 +46,8 @@ const reset = () => {
 
 const clear = () => {
     display.innerText = '0';
-    currentNum = previousNum = operation = result = undefined;
+    previousNum = operation = result = undefined;
+    currentNum = display.innerText;
     hasDot = operationChosen = operationPerformed = false;
     buttons[0].innerText = 'AC'
 }
@@ -64,7 +66,7 @@ buttons.forEach((element) => {
                 display.innerText = '0';
                 operationChosen = false;
                 hasDot = false;
-            }
+
             getNum(element)
             if (operation === undefined) {
                 currentNum = display.innerText
