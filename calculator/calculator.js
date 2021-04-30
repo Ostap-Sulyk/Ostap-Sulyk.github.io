@@ -2,7 +2,7 @@
 let display = document.getElementById('screen')
 
 let currentNum = display.innerText;
-let  previousNum, operation, result;
+let previousNum, operation, result;
 let hasDot = false;
 let operationChosen = false
 let operationPerformed = false;
@@ -58,7 +58,7 @@ buttons.forEach((element) => {
         // logic for number
 
         if (element.classList.contains('num')) {
-            if (operation === '='){
+            if (operation === '=') {
                 reset()
             }
             buttons[0].innerText = 'C'
@@ -74,12 +74,18 @@ buttons.forEach((element) => {
                 previousNum = display.innerText;
             }
         } else if (element.classList.contains('operations')) {
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('last-option')
+            }
             result = calculation(currentNum, operation, previousNum)
             if (operationPerformed) {
                 reset()
             }
+
+            element.classList.add('last-option')
             operationChosen = true;
             operation = element.value;
+
         } else {
             if (element.value === 'clear') {
                 clear()
@@ -91,6 +97,7 @@ buttons.forEach((element) => {
                 currentNum = currentNum.div(100)
                 display.innerText = currentNum;
             }
+
         }
     })
 });
