@@ -66,7 +66,7 @@ buttons.forEach((element) => {
                 display.innerText = '0';
                 operationChosen = false;
                 hasDot = false;
-
+            }
             getNum(element)
             if (operation === undefined) {
                 currentNum = display.innerText
