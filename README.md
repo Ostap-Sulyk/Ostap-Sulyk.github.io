@@ -1,3 +1,3 @@
 # Ostap-Sulyk.github.io
 
-This is a mac calculator clone I did for fun.
+This is cind of portfolio of mine
