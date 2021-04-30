@@ -34,6 +34,11 @@ const calculation = (num1, action, num2) => {
         }
     }
 }
+const removeHighlighting = () =>{
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('last-option')
+    }
+}
 
 const reset = () => {
     display.innerText = result
@@ -42,6 +47,7 @@ const reset = () => {
     previousNum = undefined
     operation = undefined
     operationPerformed = false
+    removeHighlighting()
 }
 
 const clear = () => {
@@ -50,6 +56,7 @@ const clear = () => {
     currentNum = display.innerText;
     hasDot = operationChosen = operationPerformed = false;
     buttons[0].innerText = 'AC'
+    removeHighlighting()
 }
 
 let buttons = document.querySelectorAll("button");
@@ -74,9 +81,7 @@ buttons.forEach((element) => {
                 previousNum = display.innerText;
             }
         } else if (element.classList.contains('operations')) {
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('last-option')
-            }
+            removeHighlighting()
             result = calculation(currentNum, operation, previousNum)
             if (operationPerformed) {
                 reset()
