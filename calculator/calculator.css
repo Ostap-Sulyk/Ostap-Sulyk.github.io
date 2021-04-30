@@ -45,9 +45,6 @@ button {
   background-color: #81a1c1;
 }
 
-button:hover {
-  filter: brightness(110%);
-}
-.last-option{
+button:hover, .last-option {
   filter: brightness(130%);
 }
