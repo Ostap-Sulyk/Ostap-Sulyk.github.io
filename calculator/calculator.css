@@ -31,6 +31,7 @@ button {
     text-align: right;
     margin: 16px 16px 0 16px;
     grid-column: 1/5;
+    overflow: hidden;
 }
 
 .zero {
