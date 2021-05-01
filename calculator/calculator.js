@@ -1,4 +1,5 @@
 "use strict";
+
 let display = document.getElementById('screen')
 
 let currentNum = display.innerText;
@@ -6,6 +7,7 @@ let previousNum, operation, result;
 let hasDot = false;
 let operationChosen = false
 let operationPerformed = false;
+
 
 const getNum = (element) => {
     if (display.innerText === '0' && element.value !== '.') {
@@ -34,7 +36,7 @@ const calculation = (num1, action, num2) => {
         }
     }
 }
-const removeHighlighting = () =>{
+const removeHighlighting = () => {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove('last-option')
     }
@@ -63,31 +65,31 @@ let buttons = document.querySelectorAll("button");
 buttons.forEach((element) => {
     element.addEventListener("click", () => {
         // logic for number
-
         if (element.classList.contains('num')) {
+
             if (operation === '=') {
                 reset()
             }
-            buttons[0].innerText = 'C'
+            buttons[0].innerText = 'C';
             if (operationChosen) {
                 display.innerText = '0';
                 operationChosen = false;
                 hasDot = false;
             }
-            getNum(element)
+            getNum(element);
             if (operation === undefined) {
                 currentNum = display.innerText
             } else {
                 previousNum = display.innerText;
             }
         } else if (element.classList.contains('operations')) {
-            removeHighlighting()
-            result = calculation(currentNum, operation, previousNum)
+            removeHighlighting();
+            result = calculation(currentNum, operation, previousNum);
             if (operationPerformed) {
                 reset()
             }
 
-            element.classList.add('last-option')
+            element.classList.add('last-option');
             operationChosen = true;
             operation = element.value;
 
@@ -102,7 +104,6 @@ buttons.forEach((element) => {
                 currentNum = currentNum.div(100)
                 display.innerText = currentNum;
             }
-
         }
     })
 });

@@ -8,9 +8,7 @@
     'use strict';
     var Big,
 
-
         /************************************** EDITABLE DEFAULTS *****************************************/
-
 
         // The default values below must be integers within the stated ranges.
 
@@ -173,7 +171,7 @@
         } else {
 
             // Determine trailing zeros.
-            for (; nl > 0 && n.charAt(--nl) == '0';);
+            for (; nl > 0 && n.charAt(--nl) == '0';) ;
             x.e = e - i - 1;
             x.c = [];
 
@@ -730,7 +728,7 @@
 
         if (isneg) n = -n;
 
-        for (;;) {
+        for (; ;) {
             if (n & 1) y = y.times(x);
             n >>= 1;
             if (!n) break;
@@ -1019,7 +1017,9 @@
 
     //AMD.
     if (typeof define === 'function' && define.amd) {
-        define(function () { return Big; });
+        define(function () {
+            return Big;
+        });
 
         // Node and other CommonJS-like environments that support module.exports.
     } else if (typeof module !== 'undefined' && module.exports) {
