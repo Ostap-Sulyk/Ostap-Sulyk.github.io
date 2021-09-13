@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+body {
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: calc(10px + 0.33vw);
+  -webkit-font-smoothing: antialiased;
+  padding: 5vh 10vw;
+  color: #2e3440;
+  background: #e5e9f0;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 4.5em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+h2 {
+  font-weight: 400;
+  font-size: 2em;
+}
+p {
+  font-size: 1.6em;
+  font-weight: 300;
+  line-height: 1.4;
+  max-width: 28em;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  color: #2e3440;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 60%;
+  left: -0.1em;
+  right: -0.1em;
+  bottom: 0;
+  transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+  /* yellow */
+  background-color: rgba(235, 203, 129, 0.5);
+  /*  cyan */
+  /* background-color: rgba(143, 188, 187, 0.5); */
+  /* purple */
+  /* background-color: rgba(180, 142, 173, 0.5); */
+  /* red */
+  /* background-color: rgba(197, 97, 106, 0.5); */
+}
+
+a:hover:after {
+  top: 0;
+}
