@@ -43,9 +43,9 @@ a::after {
   bottom: 0;
   transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
   /* yellow */
-  background-color: rgba(235, 203, 129, 0.5);
+  /* background-color: rgba(235, 203, 129, 0.5); */
   /*  cyan */
-  /* background-color: rgba(143, 188, 187, 0.5); */
+  background-color: rgba(143, 188, 187, 0.5);
   /* purple */
   /* background-color: rgba(180, 142, 173, 0.5); */
   /* red */
