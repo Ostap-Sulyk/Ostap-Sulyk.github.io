@@ -9,7 +9,7 @@
 body {
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas,
     "Liberation Mono", Menlo, "andale mono", monospace;
-  font-size: calc(10px + 0.33vw);
+  /* font-size: calc(10px + 0.33vw); */
   -webkit-font-smoothing: antialiased;
   /* padding: 5vh 10vw; */
   color: #2e3440;
@@ -19,18 +19,18 @@ body {
 
 h1 {
   font-weight: 400;
-  font-size: 4.5em;
+  font-size: 3.5em;
   text-transform: uppercase;
   margin-bottom: 0;
 }
 h2 {
   font-weight: 400;
-  font-size: 2em;
+  font-size: 1.6em;
 }
 p {
-  font-size: 1.6em;
+  font-size: 1.2em;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.2;
   max-width: 28em;
 }
 
