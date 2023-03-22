@@ -8,45 +8,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Ostap Sulyk" />
   <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles/style.css" />
   <title>Ostap Sulyk</title>
 </head>
 
 <body>
-  <div class="hero section">
-    <div>
-      <h1>HELLO! 👋🏻</h1>
-      <h2>My name is Ostap Sulyk</h2>
-      <br>
-      <br>
-      <p>I am a Toronto-based 📍 backend developer with a passion for programming and travel ✈️</p>
-      <br>
-      <p>My technology stack is
-        <a href="https://spring.io/">Spring Boot</a>,
-        <a href="https://www.mysql.com/">MySQL</a>,
-        <a href="https://www.mongodb.com/">MongoDB</a>,
-        <a href="https://www.docker.com/">Docker,</a> and
-        <a href="https://react.dev/">React</a>
-      </p>
-    </div>
-    <div>
+  <header>
+    <div class="wrapper header-wrapper">
+      <div>
+        <h1 class="site-title">HELLO! 👋🏻</h1>
+        <h2>My name is Ostap Sulyk</h2>
+        <p>I am a Toronto-based 📍 backend developer with a passion for programming and travel 🛬</p>
+        <p>My technology stack is
+          <a href="https://spring.io/">Spring Boot</a>,
+          <a href="https://www.mysql.com/">MySQL</a>,
+          <a href="https://www.mongodb.com/">MongoDB</a>,
+          <a href="https://www.docker.com/">Docker</a>, and
+          <a href="https://react.dev/">React</a>
+        </p>
+      </div>
+
       <img src="./assets/avatar.png" alt="my photo" class="hero-img">
     </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <hr>
-  <br>
-  <br>
-  <br>
+  </header>
 
-  <div class="helpme">
-    <h1>My Work</h1>
-    <div class="project">
-      <img src="./assets/Screenshot 2023-03-17 at 11.06.07 PM.png" width="100%" alt="Project Image" />
-      <h2>ParkVRO</h2>
-      <h3>Parking Spot Rentin App</h3>
+  <section class="diagonal">
+    <div class="wrapper">
+      <h1 class="section-title">ParkVRO</h1>
+      <img src="./assets/Screenshot 2023-03-17 at 11.06.07 PM.png" width="90%" alt="Project Image" />
+
+    </div>
+  </section>
+  <section>
+    <div class="wrapper">
+      <h2>Parking Spot Rentin App</h2>
       <p>This App's goal is to fight problem with insuficient amount of parking spaces in urban enviroment</p>
       <p>Regular users can use it to find parking, book and pay for parking spot</p>
       <p>Business Partners will be able to register parking spots and rentit out to other users while reciving
@@ -54,42 +49,43 @@
       <a href="https://github.com/Ostap-Sulyk/ParkVRO" target="_blank" style="display: inline-block" class="btn">View
         Project</a>
     </div>
+  </section>
 
-    <div class="project">
-      <img src="./assets/Screenshot 2023-03-17 at 11.20.18 PM.png" width="100%" alt="Project Image" />
-      <h2>Crown Clothing</h2>
-      <h3>Parking Spot Rentin App</h3>
-      <p>This App's goal is to fight problem with insuficient amount of parking spaces in urban enviroment</p>
-      <p>Regular users can use it to find parking, book and pay for parking spot</p>
-      <p>Business Partners will be able to register parking spots and rentit out to other users while reciving
-        payments</p>
-      <a href="https://github.com/Ostap-Sulyk/crwn-clothing" target="_blank" style="display: inline-block"
-        class="btn">View
-        Project</a>
+  <section class="spikes">
+    <div class="wrapper">
+      <h1 class="section-title">Crown Clothing</h1>
+      <img src="./assets/Screenshot 2023-03-17 at 11.20.18 PM.png" width="90%" alt="Project Image" />
     </div>
+  </section>
+
+  <div class="wrapper">
+    <h2>E commerce project</h2>
+    <p>This is a website that uses stripe api integration to process real payments</p>
+    <p>Using responsive web design, </p>
+    <p>Business Partners will be able to register parking spots and rentit out to other users while reciving
+      payments</p>
+    <a href="https://github.com/Ostap-Sulyk/crwn-clothing" target="_blank" class="btn">View
+      Project</a>
   </div>
-  <br>
-  <br>
-  <br>
-  <hr>
-  <br>
-  <br>
-  <br>
-  <div class="helpme">
-    <h1>Contact</h1>
-    <div class="contact-links">
-      <a href="./documents/resume.pdf" style="margin: 0.5cm">
-        <h3>Resume</h3>
-      </a>
-      <a href="./documents/cover_letter.pdf" style="margin: 0.5cm">
-        <h3>Cover</h3>
-      </a>
-      <a href="mailto:ostapsulyk@gmail.com" style="margin: 0.5cm">
-        <h3>Email me</h3>
-      </a>
+
+
+  <section class="wavy">
+    <div class="wrapper" style="text-align: center;">
+      <h1>Contact</h1>
+      <div class="contact-links">
+        <a href="./documents/resume.pdf">
+          <h3>Resume</h3>
+        </a>
+        <a href="./documents/cover_letter.pdf">
+          <h3>Cover</h3>
+        </a>
+        <a href="mailto:ostapsulyk@gmail.com">
+          <h3>Email</h3>
+        </a>
+      </div>
     </div>
-    <br><br><br><br><br><br>
-  </div>
+
+  </section>
 </body>
 
 </html>
