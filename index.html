@@ -5,94 +5,48 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="Spring Boot developer" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Ostap Sulyk" />
-  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg" />
   <link rel="stylesheet" href="styles/style.css" />
-  <title>Ostap Sulyk</title>
+  <script src="script.js" defer></script>
+  <title>SpringBoot Web Developer</title>
 </head>
 
 <body>
   <header>
-    <div class="wrapper header-wrapper">
+    <div class="logo">
+      <a href="#"><img src="assets/logo.svg" alt="beans" /></a>
+    </div>
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="">about me</a></li>
+        <li><a href="">my work</a></li>
+        <li><a href="">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <div class="hero-container wrapper">
       <div>
-        <h1 class="site-title">HELLO! 👋🏻</h1>
-        <h2>My name is Ostap Sulyk</h2>
-        <p>I am a Toronto-based 📍 fullstack developer with a passion for programming and travel 🛬</p>
-        <p>My technology stack is
-          <a href="https://spring.io/">Spring Boot</a>,
-          <a href="https://www.mysql.com/">SQL</a>,
-          <a href="https://www.mongodb.com/">NoSQL</a>,
-          <a href="https://www.docker.com/">Docker</a>, and
-          <a href="https://react.dev/">React</a>
-        </p>
+        <h1>
+          I am building
+          <span class=" highlight">secure</span> and
+          <span class="highlight">scalable</span>
+          web applications
+        </h1>
+        <button class="btn--text btn--small" id="learn-more-btn">Learn more &DownArrow;</button>
       </div>
-
       <img src="./assets/avatar.png" alt="my photo" class="hero-img">
     </div>
-  </header>
-
-  <section class="diagonal">
-    <div class="wrapper">
-      <h1 class="section-title">ParkVRO</h1>
-      <img src="./assets/Screenshot 2023-03-17 at 11.06.07 PM.png" width="90%" alt="Project Image" />
-
-    </div>
-  </section>
-  <section>
-    <div class="wrapper">
-      <h2>Parking Spot Rentin App</h2>
-      <p>This App's goal is to fight problem with insuficient amount of parking spaces in urban enviroment</p>
-      <p>Regular users can use it to find parking, book and pay for parking spot</p>
-      <p>Business Partners will be able to register parking spots and rentit out to other users while reciving
-        payments</p>
-      <a href="https://github.com/Ostap-Sulyk/ParkVRO" target="_blank" style="display: inline-block" class="btn">View
-        Project</a>
-    </div>
   </section>
 
-  <section class="spikes">
-    <div class="wrapper">
-      <h1 class="section-title">Crown Clothing</h1>
-      <img src="./assets/Screenshot 2023-03-17 at 11.20.18 PM.png" width="90%" alt="Project Image" />
-    </div>
-  </section>
 
-  <div class="wrapper">
-    <h2>E commerce project</h2>
-    <p>This is a website that uses stripe api integration to process real payments</p>
-    <p>Using responsive web design, </p>
-    <p>Business Partners will be able to register parking spots and rentit out to other users while reciving
-      payments</p>
-    <a href="https://github.com/Ostap-Sulyk/crwn-clothing" target="_blank" class="btn">View
-      Project</a>
-  </div>
-
-
-  <section class="wavy">
-    <div class="wrapper" style="text-align: center;">
-      <h1>Contact</h1>
-      <div class="contact-links">
-        <a href="./documents/resume.pdf">
-          <h3>Resume</h3>
-        </a>
-        <a href="./documents/cover_letter.pdf">
-          <h3>Cover</h3>
-        </a>
-        <a href="mailto:ostapsulyk@gmail.com">
-          <h3>Email</h3>
-        </a>
-      </div>
-    </div>
-
-  </section>
-  <form action="submit-form.php" method="POST">
-  <input type="hidden" name="hidden-input-1" value="value-1">
-  <input type="hidden" name="hidden-input-2" value="value-2">
-  <input type="hidden" name="hidden-input-3" value="value-3">
-  <input type="hidden" name="hidden-input-4" value="value-4">
-  <input type="submit" value="Submit Form">
-</form>
 
 </body>
 
