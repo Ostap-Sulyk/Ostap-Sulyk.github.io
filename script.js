@@ -2,6 +2,7 @@
 const aboutBtn = document.getElementById("learn-more-btn");
 const projectBtn = document.getElementById("projects-btn");
 const navAboutBtn = document.querySelector(".nav-bar ul li:nth-child(1) a");
+const navWorkBtn = document.querySelector(".nav-bar ul li:nth-child(2) a");
 
 const logo = document.querySelector(".logo");
 
@@ -24,6 +25,13 @@ projectBtn.addEventListener("click", () => {
 navAboutBtn.addEventListener("click", (event) => {
   event.preventDefault(); // prevent default link behavior
   aboutSection.scrollIntoView({ behavior: "smooth" });
+  navBar.classList.remove("active"); // hide navigation bar
+  heroContainer.classList.remove("slide-down"); // move hero section back up
+});
+
+navWorkBtn.addEventListener("click", (event) => {
+  event.preventDefault(); // prevent default link behavior
+  projectsSection.scrollIntoView({ behavior: "smooth" });
   navBar.classList.remove("active"); // hide navigation bar
   heroContainer.classList.remove("slide-down"); // move hero section back up
 });
