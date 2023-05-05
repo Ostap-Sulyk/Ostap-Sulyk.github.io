@@ -44,3 +44,26 @@ hamburger.onclick = function () {
   navBar.classList.toggle("active");
   heroContainer.classList.toggle("slide-down");
 };
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper(".swiper-container", {
+    slidesPerView: "auto",
+    spaceBetween: 10,
+    centeredSlides: true,
+    autoplay: {
+      delay: 4000,
+      reverseDirection: false,
+    },
+    loop: true,
+    grabCursor: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    mousewheel: {
+      invert: false,
+    },
+    speed: 800,
+  });
+});
