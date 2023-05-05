@@ -15,7 +15,6 @@
   --light: #e6e3e3;
   --dark-secondary: #2b2f33;
   --light-secondary: #d4d0cc;
-  --van-glass-dark: #1b1f23f5;
   --fg: var(--dark);
   --fg-s: var(--dark-secondary);
   --bg: var(--light);
@@ -46,10 +45,15 @@ header {
   padding: 1.5em;
   max-width: 70rem;
   margin: 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
-.logo > a > img {
+.logo > img {
   width: 2em;
+  cursor: pointer;
 }
 
 .hamburger {
@@ -154,7 +158,7 @@ section {
   transition: transform 0.3s ease-in-out;
 }
 .hero-container.slide-down {
-  transform: translateY(35%);
+  transform: translateY(40%);
 }
 .hero-container > div > h1 {
   font-size: 2.5em;
@@ -213,9 +217,13 @@ section {
     background-color: var(--bg);
     transition: 0.3s;
     z-index: -1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    pointer-events: 0;
   }
+
   .nav-bar.active {
     height: 14em;
+    pointer-events: auto;
   }
   .nav-bar ul {
     display: block;
