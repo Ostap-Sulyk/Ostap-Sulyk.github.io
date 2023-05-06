@@ -45,7 +45,6 @@ hamburger.onclick = function () {
   heroContainer.classList.toggle("slide-down");
 };
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper(".swiper-container", {
     slidesPerView: "auto",
@@ -64,6 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     mousewheel: {
       invert: false,
     },
-    speed: 800,
+    speed: 500,
   });
 });
