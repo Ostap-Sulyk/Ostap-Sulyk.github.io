@@ -199,8 +199,11 @@ section {
   justify-content: center;
   align-items: center;
 }
+
 .swiper-slide > img{
-  margin: 0 auto;
+  height: 80%;
+  width: 100%;
+  object-fit: cover;
 }
 
 @keyframes border-move {
@@ -221,12 +224,6 @@ section {
   }
 }
 
-.swiper-slide{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 100vh;
-}
 @media only screen and (max-width: 800px) {
   .swiper-container {
     height: 50vh;
@@ -289,6 +286,15 @@ section {
   .hero-container > div > h1 {
     font-size: 1.5em;
     font-weight: 500;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .swiper-container {
+    width: 60%;
+  }
+  .swiper-slide > img{
+    height: 100%;
   }
 }
 
